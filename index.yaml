@@ -1,0 +1,39 @@
+apiVersion: v1
+entries:
+  apache:
+  - annotations:
+      category: Infrastructure
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 2.4.56
+    created: "2023-03-14T14:05:41.772520671Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Apache HTTP Server is an open-source HTTP server. The goal of this
+      project is to provide a secure, efficient and extensible server that provides
+      HTTP services in sync with the current HTTP standards.
+    digest: e6f805813bd95e4ba0b25f21e9678462432f2b428ce6ab0dcfa36da7c822ee43
+    home: https://github.com/bitnami/charts/tree/main/bitnami/apache
+    icon: https://bitnami.com/assets/stacks/apache/img/apache-stack-220x234.png
+    keywords:
+    - apache
+    - http
+    - https
+    - www
+    - web
+    - reverse proxy
+    maintainers:
+    - name: Bitnami
+      url: https://github.com/bitnami/charts
+    name: apache
+    sources:
+    - https://github.com/bitnami/containers/tree/main/bitnami/apache
+    - https://httpd.apache.org
+    urls:
+    - https://github.com/luismy/test/apache-9.2.18.tgz
+    version: 9.2.18
+generated: "2023-03-14T14:05:41.753358043Z"
