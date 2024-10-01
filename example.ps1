@@ -1,3 +1,13 @@
+# Assume the AWS role
+$roleArn = "arn:aws:iam::123456789012:role/YourRoleName"  # Replace with your role ARN
+$roleSessionName = "YourSessionName"  # Replace with your session name
+$creds = (aws sts assume-role --role-arn $roleArn --role-session-name $roleSessionName | ConvertFrom-Json).Credentials
+
+# Export the temporary credentials as environment variables
+$env:AWS_ACCESS_KEY_ID = $creds.AccessKeyId
+$env:AWS_SECRET_ACCESS_KEY = $creds.SecretAccessKey
+$env:AWS_SESSION_TOKEN = $creds.SessionToken
+
 # Variables
 $instanceId = "i-xxxxxxxxxxxxxx"   # Replace with your EC2 instance ID
 $snapshotId = "snap-xxxxxxxxxxxxxx" # Replace with the snapshot ID you want to restore
