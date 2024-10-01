@@ -1,0 +1,19 @@
+# Variables for network path, drive letter, and user credentials
+$networkPath = "\\server\sharedfolder"  # Replace with the actual network path
+$driveLetter = "Z:"                    # Replace with the desired drive letter
+$username = "DOMAIN\Username"           # Replace with the domain and username
+$password = "UserPassword"              # Replace with the actual password (optional, use Get-Credential if you want to prompt for the password securely)
+
+# Convert the plain text password to a secure string
+$securePassword = ConvertTo-SecureString $password -AsPlainText -Force
+
+# Create a PSCredential object
+$credential = New-Object System.Management.Automation.PSCredential($username, $securePassword)
+
+# Map the network drive using the provided credentials
+Write-Host "Mapping network drive $driveLetter to $networkPath as $username..."
+New-PSDrive -Name $driveLetter -PSProvider FileSystem -Root $networkPath -Persist -Credential $credential
+
+# Verify the mapping
+Write-Host "Network drive mapped successfully. Listing mapped drives..."
+Get-PSDrive -PSProvider FileSystem
